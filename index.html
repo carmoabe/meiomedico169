@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Guia geral de viagem para a turma Meio Médico UFPR 169 — voo, bagagem, transfer, alimentação, pagamentos, emergências e checklist interativo.">
+<meta name="theme-color" content="#0E4A6B">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏖️</text></svg>">
+<title>Guia Meio Médico · UFPR 169</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean-900:#0B2E44;
+    --ocean-700:#0E4A6B;
+    --ocean-600:#125E86;
+    --ocean-500:#1C7CA6;
+    --ocean-300:#5FA8C7;
+    --sand-500:#FFC862;
+    --sand-300:#FFE1A8;
+    --forest-600:#2F5342;
+    --forest-500:#3E6B54;
+    --red-600:#C7272E;
+    --red-700:#A31F26;
+    --red-100:#FBE1DF;
+    --cream-000:#FBF4E4;
+    --cream-100:#F2E7CD;
+
+    --bg:var(--cream-000);
+    --bg-alt:#EAF2EF;
+    --surface:#FFFFFF;
+    --surface-2:#FFFDF8;
+    --text:#152A3A;
+    --text-muted:#4C6274;
+    --accent:var(--sand-500);
+    --accent-strong:#B45309;
+    --accent-contrast:#17324A;
+    --border:rgba(21,42,58,0.13);
+    --header-bg:rgba(251,244,228,0.86);
+    --shadow:0 18px 40px -22px rgba(11,46,68,0.35);
+
+    --em-bg:var(--red-100);
+    --em-text:var(--red-700);
+    --em-accent:var(--red-600);
+    --em-border:rgba(199,39,46,0.28);
+
+    color-scheme:light;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0B2436;
+      --bg-alt:#0F2E42;
+      --surface:#123249;
+      --surface-2:#0F2B3F;
+      --text:#F5EAD4;
+      --text-muted:#AFC4D2;
+      --accent:#FFD27A;
+      --accent-strong:#FFD27A;
+      --accent-contrast:#231202;
+      --border:rgba(245,234,212,0.16);
+      --header-bg:rgba(11,36,54,0.82);
+      --shadow:0 18px 40px -20px rgba(0,0,0,0.55);
+      --cream-000:#0B2436;
+      --cream-100:#0F2E42;
+      --em-bg:#3A1416;
+      --em-text:#FFC9C3;
+      --em-accent:#FF6B63;
+      --em-border:rgba(255,107,99,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B2436;
+    --bg-alt:#0F2E42;
+    --surface:#123249;
+    --surface-2:#0F2B3F;
+    --text:#F5EAD4;
+    --text-muted:#AFC4D2;
+    --accent:#FFD27A;
+    --accent-strong:#FFD27A;
+    --accent-contrast:#231202;
+    --border:rgba(245,234,212,0.16);
+    --header-bg:rgba(11,36,54,0.82);
+    --shadow:0 18px 40px -20px rgba(0,0,0,0.55);
+    --cream-000:#0B2436;
+    --cream-100:#0F2E42;
+    --em-bg:#3A1416;
+    --em-text:#FFC9C3;
+    --em-accent:#FF6B63;
+    --em-border:rgba(255,107,99,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Mulish",-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion:no-preference){
+    html{scroll-behavior:smooth;}
+  }
+  h1,h2,h3,.display{
+    font-family:"Baloo 2","Segoe UI Rounded",ui-rounded,sans-serif;
+    font-weight:700;
+    text-wrap:balance;
+    margin:0;
+  }
+  p{margin:0;line-height:1.55;color:var(--text-muted);max-width:62ch;}
+  strong{color:var(--text);}
+  a{color:inherit;}
+  ::selection{background:var(--accent);color:var(--accent-contrast);}
+  img{max-width:100%;}
+  [hidden]{display:none!important;}
+
+  .wrap{max-width:720px;margin:0 auto;padding-inline:20px;}
+
+  /* ---------- Header ---------- */
+  header.topbar{
+    position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:60;
+    background:transparent;
+    transition:background .25s ease,box-shadow .25s ease;
+  }
+  header.topbar.solid{background:var(--header-bg);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--border);}
+  .topbar-inner{
+    max-width:720px;margin:0 auto;padding:14px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .brand{display:flex;align-items:center;gap:9px;font-family:"Baloo 2";font-weight:700;font-size:17px;letter-spacing:.2px;color:var(--topbar-fg,var(--cream-000));cursor:pointer;background:none;border:none;padding:0;}
+  header.topbar.solid .brand{color:var(--text);}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
+  .menu-btn{
+    display:flex;align-items:center;justify-content:center;
+    width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(251,244,228,.55);
+    background:rgba(251,244,228,.12);color:var(--cream-000);cursor:pointer;
+    transition:background .2s,border-color .2s,color .2s;
+  }
+  header.topbar.solid .menu-btn{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .menu-btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast);}
+
+  /* ---------- Nav drawer ---------- */
+  .drawer-backdrop{
+    position:fixed;inset:0;background:rgba(11,36,54,.55);z-index:70;
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .drawer-backdrop.open{opacity:1;pointer-events:auto;}
+  .drawer{
+    position:fixed;top:0;right:0;bottom:0;z-index:80;width:min(320px,84vw);
+    background:var(--surface);box-shadow:-20px 0 50px -20px rgba(0,0,0,.45);
+    transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);
+    display:flex;flex-direction:column;
+    padding:calc(18px + env(safe-area-inset-top,0px)) 0 calc(18px + env(safe-area-inset-bottom,0px));
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:0 20px 16px;border-bottom:1px solid var(--border);}
+  .drawer-head span{font-family:"Baloo 2";font-weight:700;font-size:16px;}
+  .drawer-close{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--bg-alt);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);}
+  .drawer nav{overflow-y:auto;padding:8px 10px;display:flex;flex-direction:column;gap:2px;}
+  .drawer nav a{
+    display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;
+    text-decoration:none;color:var(--text);font-weight:700;font-size:14.5px;
+    transition:background .15s;
+  }
+  .drawer nav a svg{flex:none;color:var(--text-muted);}
+  .drawer nav a:hover{background:var(--bg-alt);}
+  .drawer nav a.active{background:var(--cream-100);color:var(--accent-strong);}
+  .drawer nav a.active svg{color:var(--accent-strong);}
+  .drawer nav a.sos{color:var(--em-text);}
+  .drawer nav a.sos svg{color:var(--em-accent);}
+  .drawer-foot{padding:14px 20px 0;border-top:1px solid var(--border);margin-top:8px;}
+  .drawer-foot p{font-size:12.5px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;background:linear-gradient(175deg,var(--ocean-700) 0%,var(--ocean-500) 62%,var(--ocean-300) 100%);
+    padding:calc(96px + env(safe-area-inset-top,0px)) 20px 64px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(circle at 18% 20%,rgba(255,255,255,.10),transparent 40%),
+      radial-gradient(circle at 85% 75%,rgba(255,255,255,.08),transparent 45%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;max-width:520px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .eyebrow{
+    font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--sand-300);
+  }
+  .badge-emblem{width:min(280px,72vw);height:auto;}
+  .hero h1{font-size:clamp(30px,7vw,42px);color:var(--cream-000);line-height:1.04;}
+  .hero .sub{font-size:15.5px;color:rgba(251,244,228,.86);max-width:38ch;}
+  .hero-cta{
+    margin-top:6px;display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent);color:var(--accent-contrast);font-weight:800;font-size:14.5px;
+    padding:13px 22px;border-radius:100px;text-decoration:none;box-shadow:0 14px 30px -12px rgba(255,200,98,.6);
+    border:none;cursor:pointer;
+  }
+  .hero-wave{display:block;width:100%;height:auto;position:relative;margin-top:-2px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:52px 20px 8px;scroll-margin-top:76px;}
+  section.alt{background:var(--bg-alt);}
+  .section-head{display:flex;align-items:center;gap:13px;margin-bottom:18px;max-width:720px;margin-inline:auto;}
+  .section-icon{
+    flex:none;width:44px;height:44px;border-radius:14px;background:var(--surface);
+    display:flex;align-items:center;justify-content:center;color:var(--accent-strong);
+    box-shadow:var(--shadow);border:1px solid var(--border);
+  }
+  .section-head h2{font-size:22px;color:var(--text);}
+  .section-head .tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:2px;}
+  .section-body{max-width:720px;margin:0 auto;padding-bottom:44px;display:flex;flex-direction:column;gap:14px;}
+
+  .card{
+    background:var(--surface);border:1px solid var(--border);border-radius:18px;
+    padding:18px 19px;box-shadow:var(--shadow);
+  }
+  .card h3{font-size:16px;margin-bottom:7px;color:var(--text);display:flex;align-items:center;gap:8px;}
+  .card h3 svg{color:var(--forest-500);flex:none;}
+  .card p + p{margin-top:8px;}
+
+  /* timeline */
+  .timeline{display:flex;flex-direction:column;}
+  .tl-item{display:grid;grid-template-columns:26px 1fr;gap:16px;position:relative;}
+  .tl-rail{display:flex;flex-direction:column;align-items:center;}
+  .tl-dot{width:14px;height:14px;border-radius:50%;background:var(--accent);margin-top:4px;box-shadow:0 0 0 4px var(--cream-100);}
+  .tl-line{flex:1;width:2px;background:var(--border);margin-top:2px;}
+  .tl-item:last-child .tl-line{display:none;}
+  .tl-content{padding-bottom:22px;}
+  .tl-content h3{font-size:15.5px;margin-bottom:5px;}
+  .tl-content p{font-size:14.5px;}
+  .tl-item.warn .tl-dot{background:var(--em-accent);box-shadow:0 0 0 4px var(--em-bg);}
+
+  /* stat grid (bagagem) */
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 15px;box-shadow:var(--shadow);}
+  .stat b{display:block;font-family:"Baloo 2";font-size:19px;color:var(--accent-strong);background:var(--cream-100);width:fit-content;padding:1px 0;}
+  .stat span{display:block;font-size:12.5px;color:var(--text-muted);margin-top:4px;font-weight:700;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-size:13px;font-weight:700;padding:8px 13px;border-radius:100px;
+    background:var(--em-bg);color:var(--em-text);border:1px solid var(--em-border);
+    display:inline-flex;align-items:center;gap:6px;
+  }
+
+  /* pack list */
+  .pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .pack-item{
+    background:var(--surface);border:1px solid var(--border);border-radius:14px;
+    padding:12px 13px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow);
+    font-size:13.5px;font-weight:700;
+  }
+  .pack-item svg{flex:none;color:var(--forest-500);}
+
+  /* accordion */
+  details.faq{
+    background:var(--surface);border:1px solid var(--border);border-radius:16px;
+    padding:4px 17px;box-shadow:var(--shadow);
+  }
+  details.faq + details.faq{margin-top:10px;}
+  details.faq summary{
+    list-style:none;cursor:pointer;padding:15px 26px 15px 0;position:relative;
+    font-weight:800;font-size:14.5px;color:var(--text);
+  }
+  details.faq summary::-webkit-details-marker{display:none;}
+  details.faq summary::after{
+    content:"";position:absolute;right:2px;top:50%;width:9px;height:9px;
+    border-right:2px solid var(--accent-strong);border-bottom:2px solid var(--accent-strong);
+    transform:translateY(-65%) rotate(45deg);transition:transform .2s;
+  }
+  details.faq[open] summary::after{transform:translateY(-35%) rotate(-135deg);}
+  details.faq .faq-body{padding-bottom:16px;font-size:14px;}
+
+  /* two column incluido/nao incluido */
+  .cols{display:grid;grid-template-columns:1fr;gap:10px;}
+  @media(min-width:560px){.cols{grid-template-columns:1fr 1fr;}}
+  .col-card{border-radius:18px;padding:17px 18px;box-shadow:var(--shadow);border:1px solid var(--border);}
+  .col-card.yes{background:linear-gradient(180deg,var(--surface),var(--surface));border-color:rgba(47,83,66,.28);}
+  .col-card.no{background:var(--surface);}
+  .col-card h3{font-size:14.5px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:11px;}
+  .col-card.yes h3{color:var(--forest-500);}
+  .col-card.no h3{color:var(--text-muted);}
+  .col-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;}
+  .col-card li{display:flex;gap:9px;font-size:13.5px;color:var(--text);align-items:flex-start;}
+  .col-card li svg{flex:none;margin-top:2px;}
+  .col-card.yes li svg{color:var(--forest-500);}
+  .col-card.no li svg{color:var(--text-muted);}
+
+  .note{
+    font-size:13px;background:var(--cream-100);border:1px dashed var(--border);
+    border-radius:14px;padding:12px 14px;color:var(--text-muted);
+  }
+  .placeholder{font-style:italic;opacity:.85;}
+
+  /* emergencia */
+  section.emergency{background:var(--em-bg);}
+  section.emergency .section-icon{color:var(--em-accent);}
+  section.emergency .section-head .tag{color:var(--em-accent);}
+  section.emergency .card{background:var(--surface);border-color:var(--em-border);}
+  .contact-card{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--surface);border:1px solid var(--em-border);border-radius:16px;
+    padding:14px 16px;box-shadow:var(--shadow);
+  }
+  .contact-info{display:flex;flex-direction:column;gap:2px;}
+  .contact-info b{font-size:15px;}
+  .contact-info span{font-size:13px;color:var(--text-muted);font-variant-numeric:tabular-nums;}
+  .contact-actions{display:flex;gap:8px;}
+  .icon-btn{
+    width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    text-decoration:none;border:none;cursor:pointer;color:#fff;flex:none;
+  }
+  .icon-btn.call{background:var(--em-accent);}
+  .icon-btn.wa{background:#25D366;}
+  .sos-banner{
+    display:flex;align-items:center;gap:12px;background:var(--em-accent);color:#fff;
+    border-radius:16px;padding:15px 17px;box-shadow:var(--shadow);
+  }
+  .sos-banner svg{flex:none;}
+  .sos-banner p{color:#fff;font-size:13.5px;}
+  .sos-banner strong{color:#fff;}
+
+  /* checklist */
+  .progress-wrap{
+    background:var(--surface);border:1px solid var(--border);border-radius:18px;
+    padding:16px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px;
+  }
+  .ring{width:52px;height:52px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;position:relative;
+    background:conic-gradient(var(--accent) calc(var(--pct,0)*1%),var(--border) 0);}
+  .ring::before{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--surface);}
+  .ring span{position:relative;font-family:"Baloo 2";font-weight:700;font-size:12.5px;color:var(--text);}
+  .progress-text b{display:block;font-size:14.5px;}
+  .progress-text span{font-size:12.5px;color:var(--text-muted);}
+
+  .check-group{display:flex;flex-direction:column;gap:9px;}
+  .check-group h4{
+    font-size:11.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--text-muted);margin:4px 2px 0;
+  }
+  .check-item{
+    display:flex;align-items:center;gap:12px;background:var(--surface);
+    border:1px solid var(--border);border-radius:14px;padding:12px 14px;
+    box-shadow:var(--shadow);cursor:pointer;user-select:none;
+  }
+  .check-item input{
+    appearance:none;-webkit-appearance:none;width:22px;height:22px;border-radius:7px;
+    border:2px solid var(--border);flex:none;position:relative;cursor:pointer;
+    transition:background .15s,border-color .15s;
+  }
+  .check-item input:checked{background:var(--forest-500);border-color:var(--forest-500);}
+  .check-item input:checked::after{
+    content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;
+    border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg);
+  }
+  .check-item label{font-size:14px;font-weight:700;cursor:pointer;flex:1;}
+  .check-item.done label{text-decoration:line-through;color:var(--text-muted);}
+  .celebrate{
+    display:flex;align-items:center;gap:10px;background:var(--forest-500);color:#fff;
+    border-radius:16px;padding:14px 16px;font-weight:700;font-size:13.5px;
+    opacity:0;max-height:0;overflow:hidden;transition:opacity .3s ease,max-height .3s ease,padding .3s ease,margin .3s ease;
+  }
+  .celebrate.show{opacity:1;max-height:80px;margin-top:2px;}
+
+  /* footer */
+  footer{
+    background:var(--ocean-900);color:rgba(251,244,228,.78);text-align:center;
+    padding:40px 20px calc(34px + env(safe-area-inset-bottom,0px));margin-top:56px;
+  }
+  footer .fbrand{font-family:"Baloo 2";font-weight:700;font-size:16px;color:var(--cream-000);margin-bottom:6px;}
+  footer p{color:rgba(251,244,228,.7);font-size:12.5px;max-width:44ch;margin-inline:auto;}
+
+  /* toast */
+  .toast{
+    position:fixed;left:50%;bottom:calc(94px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);
+    background:var(--ocean-900);color:var(--cream-000);font-size:13px;font-weight:700;
+    padding:10px 18px;border-radius:100px;box-shadow:var(--shadow);z-index:90;
+    opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0);}
+
+  /* progress FAB */
+  .fab{
+    position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:55;
+    width:58px;height:58px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--surface);box-shadow:0 16px 34px -12px rgba(11,46,68,.5);
+    display:flex;align-items:center;justify-content:center;
+    background-image:conic-gradient(var(--accent) calc(var(--fab-pct,0)*1%),var(--border) 0);
+    transition:transform .2s;
+  }
+  .fab:active{transform:scale(.94);}
+  .fab-inner{
+    width:48px;height:48px;border-radius:50%;background:var(--surface);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .fab-inner b{font-family:"Baloo 2";font-size:13px;color:var(--text);line-height:1;}
+  .fab-inner span{font-size:8.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--text-muted);margin-top:1px;}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+  a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{
+    outline:2.5px solid var(--accent);outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <button class="brand" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">
+      <span class="dot"></span> Meio Médico · 169
+    </button>
+    <button class="menu-btn" id="menuOpen" aria-label="Abrir menu de seções" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <span>Ir para…</span>
+    <button class="drawer-close" id="drawerClose" aria-label="Fechar menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+  <nav id="drawerNav">
+    <a href="#voo" data-sec="voo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-3 2v1.5l4.5-1 4.5 1V21l-3-2v-5.5z"/></svg> Voo e check-in</a>
+    <a href="#bagagem" data-sec="bagagem"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3"/></svg> Bagagem</a>
+    <a href="#levar" data-sec="levar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg> O que levar</a>
+    <a href="#transfer" data-sec="transfer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l1.6-4.8A2 2 0 0 1 6.5 5h11a2 2 0 0 1 1.9 1.2L21 11v6H3z"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg> Transfer</a>
+    <a href="#checkin-hotel" data-sec="checkin-hotel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Check-in hotel</a>
+    <a href="#alimentacao" data-sec="alimentacao"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v9M9 3v7M15 3c-1.2 0-2 1.6-2 4s.8 5 2 5v9"/></svg> Alimentação</a>
+    <a href="#pagamentos" data-sec="pagamentos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5.5" width="19" height="13" rx="2.2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/></svg> Pagamentos extras</a>
+    <a href="#checkout" data-sec="checkout"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 8l4 4-4 4M3 12h11"/></svg> Check-out</a>
+    <a href="#emergencia" data-sec="emergencia" class="sos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 1 21h22z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17.3" r=".4" fill="currentColor"/></svg> Emergências</a>
+    <a href="#checklist" data-sec="checklist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg> Checklist final</a>
+  </nav>
+  <div class="drawer-foot">
+    <p>Dúvida urgente na viagem? Toque em <strong>Emergências</strong> para os contatos da equipe Formô.</p>
+  </div>
+</aside>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Formô apresenta</span>
+      <img class="badge-emblem" src="badge.png" width="702" height="573" alt="Emblema Meio Médico UFPR 169 — sol, praia e coqueiros">
+      <h1>Guia Geral<br>da Viagem</h1>
+      <p class="sub">“Viajô — o céu já não é mais o limite.” Tudo o que a turma 169 precisa saber antes de cair na areia, num só lugar.</p>
+      <a href="#voo" class="hero-cta">
+        Começar pelo voo
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 12h13M13 6l7 6-7 6"/></svg>
+      </a>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 400 32" preserveAspectRatio="none">
+      <path d="M0 20 C 50 0, 100 32, 150 18 C 200 4, 250 30, 300 16 C 340 6, 380 22, 400 14 V32 H0 Z" fill="var(--bg)"/>
+    </svg>
+  </section>
+
+  <!-- VOO -->
+  <section id="voo">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-3 2v1.5l4.5-1 4.5 1V21l-3-2v-5.5z"/></svg></div>
+      <div><span class="tag">Dia da viagem</span><h2>Voo e check-in</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="card timeline">
+        <div class="tl-item">
+          <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <h3>Check-in</h3>
+            <p>Chegue com pelo menos <strong>2h de antecedência</strong>. Dirija-se ao guichê da <strong>Gol</strong> — vai ter um balcão de identificação da Formô por lá. Tenha em mãos o documento com foto (RG ou CNH, pode ser digital, desde que pelo aplicativo). Os assentos já estão marcados.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <h3>Portão de embarque</h3>
+            <p>Verifique na sua passagem ou nos painéis do aeroporto, e fique de olho em possíveis alterações de última hora.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <h3>Conexão</h3>
+            <p>No desembarque, siga direto para a sala de embarque novamente e fique atento ao horário do próximo voo.</p>
+          </div>
+        </div>
+        <div class="tl-item warn">
+          <div class="tl-rail"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <h3>Perdi minha conexão, e agora?</h3>
+            <p>A empresa organizadora não pode intervir diretamente nesse caso. Você deve entrar em contato com a companhia aérea para remarcar ou adquirir uma nova passagem.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAGAGEM -->
+  <section id="bagagem" class="alt">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3"/></svg></div>
+      <div><span class="tag">Regras da gol</span><h2>Bagagem</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="stat-grid">
+        <div class="stat"><b>55×35×25cm</b><span>Bagagem de mão</span></div>
+        <div class="stat"><b>10 kg</b><span>Peso máximo</span></div>
+        <div class="stat"><b>45×35×20cm</b><span>Item pessoal (mochila/bolsa)</span></div>
+        <div class="stat"><b>100ml · 1L</b><span>Líquidos — por frasco / total</span></div>
+      </div>
+      <div class="card">
+        <h3><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg> Evite levar</h3>
+        <div class="chip-row">
+          <span class="chip">✂️ Tesoura</span>
+          <span class="chip">🔪 Canivete</span>
+          <span class="chip">🧴 Frascos acima de 100ml</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE LEVAR -->
+  <section id="levar">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+      <div><span class="tag">Mala</span><h2>O que levar</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="pack-grid">
+        <div class="pack-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M12 2c3 3 3 17 0 20M12 2C9 5 9 19 12 22"/></svg> Roupas leves e de praia</div>
+        <div class="pack-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18h16M6 18v-3a6 6 0 0 1 12 0v3"/></svg> Chinelo, tênis e conforto</div>
+        <div class="pack-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg> Protetor solar e repelente</div>
+        <div class="pack-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3l1 4h4l1-4M6 7h12l-1.5 13a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2z"/></svg> Boné, chapéu e óculos de sol</div>
+        <div class="pack-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 0 0-5 5c0 3 2 5 2 8h6c0-3 2-5 2-8a5 5 0 0 0-5-5z"/><path d="M9.5 19h5M10 22h4"/></svg> Remédios de uso pessoal</div>
+        <div class="pack-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg> Higiene e produtos da viagem</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFER -->
+  <section id="transfer" class="alt">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l1.6-4.8A2 2 0 0 1 6.5 5h11a2 2 0 0 1 1.9 1.2L21 11v6H3z"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg></div>
+      <div><span class="tag">Aeroporto ↔ resort</span><h2>Transfer</h2></div>
+    </div>
+    <div class="section-body">
+      <p style="padding:0 2px 4px">O transfer entre o aeroporto e o resort é feito em <strong>5 vans</strong>, que saem conforme a chegada dos formandos — um representante da equipe estará no aeroporto para te ajudar.</p>
+      <details class="faq" open>
+        <summary>E se meu voo atrasar?</summary>
+        <div class="faq-body"><p>A equipe e o hotel monitoram os voos e ajustam o horário do transfer, se necessário.</p></div>
+      </details>
+      <details class="faq">
+        <summary>O transfer está incluso?</summary>
+        <div class="faq-body"><p>Sim — ida e volta estão incluídas dentro dos horários oficiais do pacote.</p></div>
+      </details>
+      <details class="faq">
+        <summary>É coletivo ou individual?</summary>
+        <div class="faq-body"><p>É coletivo, com horários definidos conforme a logística geral do grupo.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- CHECKIN HOTEL -->
+  <section id="checkin-hotel">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+      <div><span class="tag">Chegada</span><h2>Check-in do hotel</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="card">
+        <p>Uma pessoa por quarto fica responsável por levar os documentos até o <strong>quiosque</strong> e assinar o termo de responsabilidade em nome do grupo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALIMENTACAO -->
+  <section id="alimentacao" class="alt">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v9M9 3v7M15 3c-1.2 0-2 1.6-2 4s.8 5 2 5v9"/></svg></div>
+      <div><span class="tag">All inclusive</span><h2>Alimentação</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="card">
+        <h3>Horários de restaurantes e bares</h3>
+        <p class="placeholder">A confirmar — horários oficiais do resort serão divulgados aqui.</p>
+      </div>
+      <div class="card">
+        <h3>Bebidas inclusas</h3>
+        <p class="placeholder">A confirmar — lista conforme a política All Inclusive do hotel (drinks, cervejas, refrigerantes etc).</p>
+      </div>
+      <div class="card">
+        <h3>Restrições alimentares</h3>
+        <p>O resort oferece opções vegetarianas, sem glúten e sem lactose. Informe a recepção ou a equipe Formô sobre qualquer necessidade específica.</p>
+      </div>
+      <div class="card">
+        <h3>Consumo extra</h3>
+        <p>É possível consumir produtos não inclusos no pacote — o valor é cobrado à parte, no check-out.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGAMENTOS -->
+  <section id="pagamentos">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5.5" width="19" height="13" rx="2.2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/></svg></div>
+      <div><span class="tag">Fique de olho</span><h2>Pagamentos extras</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="cols">
+        <div class="col-card yes">
+          <h3>Incluído no pacote</h3>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg> Hospedagem All Inclusive</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg> Transfer de chegada e saída (horários oficiais)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg> Passeios já agendados</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg> Equipe Formô durante toda a viagem</li>
+          </ul>
+        </div>
+        <div class="col-card no">
+          <h3>Não incluído</h3>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> Passeios e atividades opcionais</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> Transportes fora do horário oficial</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> Bebidas fora do All Inclusive</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> Lavanderia e telefonemas</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> Esportes náuticos motorizados</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> Massagens, salão e spa</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> Centro de mergulho terceirizado</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> Lojas, fotógrafo e serviços médicos</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> Área VIP Premium</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note">💳 Alguns serviços podem ser lançados diretamente no quarto e pagos no check-out.</div>
+    </div>
+  </section>
+
+  <!-- CHECKOUT -->
+  <section id="checkout" class="alt">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 8l4 4-4 4M3 12h11"/></svg></div>
+      <div><span class="tag">Volta pra casa</span><h2>Check-out</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="card timeline">
+        <div class="tl-item">
+          <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <h3>Até 07h30</h3>
+            <p>Horário limite para o check-out no hotel.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <h3>Dica da Formô</h3>
+            <p>Faça o check-out antes e só depois vá tomar o café da manhã — evita fila de última hora.</p>
+          </div>
+        </div>
+        <div class="tl-item warn">
+          <div class="tl-rail"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <h3>Transfer de volta — 08h</h3>
+            <p>Saída do hotel às 08h. Se perder o transfer, a responsabilidade de chegar a tempo no aeroporto para o check-in é do formando.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCIA -->
+  <section id="emergencia" class="emergency">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 1 21h22z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17.3" r=".4" fill="currentColor"/></svg></div>
+      <div><span class="tag">Guarde este número</span><h2>Emergências</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="sos-banner">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 0 0-5 5c0 3 2 5 2 8h6c0-3 2-5 2-8a5 5 0 0 0-5-5z"/><path d="M9.5 19h5M10 22h4"/></svg>
+        <p><strong>Emergência médica?</strong> Procure imediatamente a equipe Formô — eles acionam o socorro e acompanham todo o atendimento.</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-info"><b>Gabriela</b><span>(41) 99673-4200</span></div>
+        <div class="contact-actions">
+          <a class="icon-btn call" href="tel:+5541996734200" aria-label="Ligar para Gabriela"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1.1.4 2.2.7 3.2a2 2 0 0 1-.5 2.1L8 10.3a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .4 2.1.6 3.2.7a2 2 0 0 1 1.7 2z"/></svg></a>
+          <a class="icon-btn wa" href="https://wa.me/5541996734200" target="_blank" rel="noopener" aria-label="WhatsApp da Gabriela"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.8 1.9.8 2s.1.3 0 .5c-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2s1.9.9 2.3 1c.3.2.5.3.6.4.1.2.1.9-.1 1.6z"/></svg></a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-info"><b>Alan</b><span>(41) 99797-0308</span></div>
+        <div class="contact-actions">
+          <a class="icon-btn call" href="tel:+5541997970308" aria-label="Ligar para Alan"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1.1.4 2.2.7 3.2a2 2 0 0 1-.5 2.1L8 10.3a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .4 2.1.6 3.2.7a2 2 0 0 1 1.7 2z"/></svg></a>
+          <a class="icon-btn wa" href="https://wa.me/5541997970308" target="_blank" rel="noopener" aria-label="WhatsApp do Alan"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.8 1.9.8 2s.1.3 0 .5c-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2s1.9.9 2.3 1c.3.2.5.3.6.4.1.2.1.9-.1 1.6z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6"/></svg> Perda de documentos ou pertences</h3>
+        <p>Avise a equipe Formô — eles orientam o registro (delegacia, achados e perdidos etc).</p>
+      </div>
+      <div class="card">
+        <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Problemas relacionados ao hotel</h3>
+        <p>Fale diretamente com a recepção do resort.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="checklist">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
+      <div><span class="tag">Antes de fechar a mala</span><h2>Checklist final</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="progress-wrap">
+        <div class="ring" id="ring" style="--pct:0"><span id="ringLabel">0%</span></div>
+        <div class="progress-text">
+          <b id="progressCount">0 de 12 prontos</b>
+          <span>Marque os itens conforme for separando</span>
+        </div>
+      </div>
+
+      <div class="check-group" data-list>
+        <h4>Documentos &amp; dinheiro</h4>
+        <div class="check-item"><input type="checkbox" id="c1"><label for="c1">RG, CNH ou passaporte válido</label></div>
+        <div class="check-item"><input type="checkbox" id="c2"><label for="c2">Cartão e/ou dinheiro físico</label></div>
+      </div>
+      <div class="check-group" data-list>
+        <h4>Eletrônicos</h4>
+        <div class="check-item"><input type="checkbox" id="c3"><label for="c3">Celular + carregador e fones</label></div>
+        <div class="check-item"><input type="checkbox" id="c4"><label for="c4">Câmera ou celular com espaço para fotos</label></div>
+      </div>
+      <div class="check-group" data-list>
+        <h4>Vestuário</h4>
+        <div class="check-item"><input type="checkbox" id="c5"><label for="c5">Roupas leves e de praia</label></div>
+        <div class="check-item"><input type="checkbox" id="c6"><label for="c6">Look do luau e das festas</label></div>
+        <div class="check-item"><input type="checkbox" id="c7"><label for="c7">Chinelo e calçado confortável</label></div>
+      </div>
+      <div class="check-group" data-list>
+        <h4>Cuidados pessoais</h4>
+        <div class="check-item"><input type="checkbox" id="c8"><label for="c8">Protetor solar, hidratante e repelente</label></div>
+        <div class="check-item"><input type="checkbox" id="c9"><label for="c9">Remédios de uso pessoal</label></div>
+        <div class="check-item"><input type="checkbox" id="c10"><label for="c10">Óculos de sol e boné/chapéu</label></div>
+        <div class="check-item"><input type="checkbox" id="c11"><label for="c11">Itens de higiene pessoal</label></div>
+      </div>
+      <div class="check-group" data-list>
+        <h4>O mais importante</h4>
+        <div class="check-item"><input type="checkbox" id="c12"><label for="c12">Boa energia e disposição pra curtir a viagem 🧘</label></div>
+      </div>
+
+      <div class="celebrate" id="celebrate">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+        Mala pronta! Agora é só curtir a 169 no paraíso. 🏖️
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fbrand">for·mō</div>
+  <p>Guia produzido pela equipe Formô para a turma Meio Médico UFPR 169. Em caso de dúvida, fale com a equipe pelo WhatsApp na seção de Emergências.</p>
+</footer>
+
+<button class="fab" id="fab" style="--fab-pct:0" onclick="document.getElementById('checklist').scrollIntoView({behavior:'smooth'})" aria-label="Ver checklist">
+  <span class="fab-inner"><b id="fabPct">0%</b><span>mala</span></span>
+</button>
+
+<div class="toast" id="toast">Copiado!</div>
+
+<script>
+(function(){
+  try{
+    var topbar=document.getElementById('topbar');
+    window.addEventListener('scroll',function(){
+      if(window.scrollY>60){topbar.classList.add('solid');}else{topbar.classList.remove('solid');}
+    },{passive:true});
+
+    var drawer=document.getElementById('drawer'),
+        backdrop=document.getElementById('drawerBackdrop'),
+        openBtn=document.getElementById('menuOpen'),
+        closeBtn=document.getElementById('drawerClose');
+    function openDrawer(){drawer.classList.add('open');backdrop.classList.add('open');drawer.setAttribute('aria-hidden','false');openBtn.setAttribute('aria-expanded','true');}
+    function closeDrawer(){drawer.classList.remove('open');backdrop.classList.remove('open');drawer.setAttribute('aria-hidden','true');openBtn.setAttribute('aria-expanded','false');}
+    openBtn.addEventListener('click',openDrawer);
+    closeBtn.addEventListener('click',closeDrawer);
+    backdrop.addEventListener('click',closeDrawer);
+    document.querySelectorAll('#drawerNav a').forEach(function(a){a.addEventListener('click',closeDrawer);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer();});
+
+    var navLinks=document.querySelectorAll('#drawerNav a[data-sec]');
+    var sections=Array.from(navLinks).map(function(a){return document.getElementById(a.getAttribute('data-sec'));}).filter(Boolean);
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            navLinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('data-sec')===entry.target.id);});
+          }
+        });
+      },{rootMargin:'-45% 0px -50% 0px'});
+      sections.forEach(function(s){io.observe(s);});
+    }
+
+    var toast=document.getElementById('toast'),toastTimer;
+    function showToast(msg){
+      toast.textContent=msg;toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    document.querySelectorAll('.contact-info span').forEach(function(el){
+      el.style.cursor='pointer';
+      el.addEventListener('click',function(){
+        var num=el.textContent.trim();
+        try{
+          navigator.clipboard.writeText(num).then(function(){showToast('Número copiado!');});
+        }catch(e){showToast('Toque e segure para copiar');}
+      });
+    });
+
+    var boxes=document.querySelectorAll('.check-item input[type=checkbox]');
+    var ring=document.getElementById('ring'),ringLabel=document.getElementById('ringLabel'),
+        progressCount=document.getElementById('progressCount'),celebrate=document.getElementById('celebrate'),
+        fab=document.getElementById('fab'),fabPct=document.getElementById('fabPct');
+    var STORAGE_KEY='meiomedico169-checklist';
+
+    function loadState(){
+      try{
+        var raw=localStorage.getItem(STORAGE_KEY);
+        return raw?JSON.parse(raw):{};
+      }catch(e){return {};}
+    }
+    function saveState(state){
+      try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){}
+    }
+    function update(){
+      var total=boxes.length,done=0,state={};
+      boxes.forEach(function(b){
+        b.closest('.check-item').classList.toggle('done',b.checked);
+        if(b.checked)done++;
+        state[b.id]=b.checked;
+      });
+      var pct=Math.round((done/total)*100);
+      ring.style.setProperty('--pct',pct);
+      ringLabel.textContent=pct+'%';
+      progressCount.textContent=done+' de '+total+' prontos';
+      fab.style.setProperty('--fab-pct',pct);
+      fabPct.textContent=pct+'%';
+      celebrate.classList.toggle('show',done===total);
+      saveState(state);
+    }
+    var saved=loadState();
+    boxes.forEach(function(b){
+      if(saved[b.id])b.checked=true;
+      b.addEventListener('change',update);
+    });
+    update();
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
