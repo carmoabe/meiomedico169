@@ -512,8 +512,8 @@
           <div class="globe-shine"></div>
           <svg class="globe-overlay" viewBox="0 0 100 100" aria-hidden="true">
             <ellipse class="brazil-ring" cx="56" cy="59" rx="14.5" ry="13" transform="rotate(-8 56 59)"/>
-            <circle class="bahia-pulse-ring" cx="64" cy="55" r="1.3"/>
-            <circle class="bahia-pulse-dot" cx="64" cy="55" r="0.9"/>
+            <circle class="bahia-pulse-ring" cx="61" cy="57.5" r="1.3"/>
+            <circle class="bahia-pulse-dot" cx="61" cy="57.5" r="0.9"/>
           </svg>
         </div>
         <span class="globe-caption">📍 Destino: Praia do Forte, Bahia</span>
@@ -929,6 +929,17 @@
       b.addEventListener('change',update);
     });
     update();
+
+    var earthVideo=document.querySelector('.globe-video');
+    if(earthVideo){
+      var tryPlay=function(){
+        if(earthVideo.paused){earthVideo.play().catch(function(){});}
+      };
+      tryPlay();
+      ['pointerdown','touchstart','scroll','keydown'].forEach(function(evt){
+        window.addEventListener(evt, tryPlay, {once:true, passive:true});
+      });
+    }
 
     var heroEl=document.querySelector('.hero');
     var reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
