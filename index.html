@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Guia geral de viagem para a turma Meio Médico UFPR 169 — voo, bagagem, transfer, alimentação, pagamentos, emergências e checklist interativo.">
-<meta name="theme-color" content="#0E4A6B">
+<meta name="theme-color" content="#FFC933">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏖️</text></svg>">
 <title>Guia Meio Médico · UFPR 169</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -282,7 +282,7 @@
 
   /* ---------- Formo brand marks ---------- */
   .hero-formo-big{width:clamp(46px,11vw,64px);height:auto;flex:none;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));}
-  .footer-logo{width:64px;height:auto;margin:0 auto 12px;display:block;position:relative;z-index:1;}
+  .footer-logo{width:64px;height:64px;margin:0 auto 12px;display:block;position:relative;z-index:1;background-color:var(--accent-strong);-webkit-mask:url("formo-logo.png") no-repeat center/contain;mask:url("formo-logo.png") no-repeat center/contain;}
   footer p{position:relative;z-index:1;}
   footer{position:relative;overflow:hidden;}
   section{position:relative;}
@@ -465,11 +465,11 @@
 
   /* footer */
   footer{
-    background:var(--ocean-900);color:rgba(251,244,228,.78);text-align:center;
+    background:var(--bg-alt);color:var(--text-muted);text-align:center;
     padding:40px 20px calc(34px + env(safe-area-inset-bottom,0px));margin-top:56px;
   }
-  footer .fbrand{font-family:"Baloo 2";font-weight:700;font-size:16px;color:var(--cream-fixed);margin-bottom:6px;}
-  footer p{color:rgba(251,244,228,.7);font-size:12.5px;max-width:44ch;margin-inline:auto;}
+  footer .fbrand{font-family:"Baloo 2";font-weight:700;font-size:16px;color:var(--text);margin-bottom:6px;}
+  footer p{color:var(--text-muted);font-size:12.5px;max-width:44ch;margin-inline:auto;}
 
   /* toast */
   .toast{
@@ -896,7 +896,7 @@
 </main>
 
 <footer>
-  <img class="footer-logo" src="formo-logo.png" alt="Formô">
+  <span class="footer-logo" role="img" aria-label="Formô"></span>
   <p>Guia produzido pela equipe Formô para a turma Meio Médico UFPR 169. Em caso de dúvida, fale com a equipe pelo WhatsApp na seção de Emergências.</p>
 </footer>
 
