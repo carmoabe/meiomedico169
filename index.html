@@ -153,34 +153,29 @@
   .drawer-foot{padding:14px 20px 0;border-top:1px solid var(--border);margin-top:8px;}
   .drawer-foot p{font-size:12.5px;}
 
-  /* ---------- Hero: full-bleed real Earth video, texts clustered at top ---------- */
+  /* ---------- Hero: full-bleed KV illustration, texts clustered at top/bottom ---------- */
   .hero{
     position:relative;display:flex;flex-direction:column;
     min-height:100vh;min-height:100dvh;
     padding:calc(96px + env(safe-area-inset-top,0px)) 20px calc(28px + env(safe-area-inset-bottom,0px));
     overflow:hidden;
-    background:#0A2E44;
+    background:#1E6FA0;
     cursor:inherit;
   }
   @media (min-width:1240px){
     .hero{padding-left:56px;padding-right:56px;}
   }
-  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;display:block;}
+  .hero-kv-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;display:block;}
   .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;}
   .hero-scrim::before,.hero-scrim::after{content:"";position:absolute;left:0;right:0;}
-  .hero-scrim::before{top:0;height:40%;background:linear-gradient(180deg,rgba(5,16,26,.82) 0%,rgba(5,16,26,.45) 62%,transparent 100%);}
-  .hero-scrim::after{bottom:0;height:38%;background:linear-gradient(0deg,rgba(5,16,26,.82) 0%,rgba(5,16,26,.45) 62%,transparent 100%);}
-  .globe-overlay{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
-  .brazil-ring{fill:none;stroke:#FBF4E4;stroke-width:.7;stroke-dasharray:3 2.2;opacity:.8;}
-  .bahia-pulse-ring{fill:none;stroke:#F5FF3D;stroke-width:.6;opacity:.85;animation:bahiaPulse 2.6s ease-out infinite;}
-  .bahia-pulse-dot{fill:#F5FF3D;filter:drop-shadow(0 0 3px #F5FF3D) drop-shadow(0 0 7px rgba(245,255,61,.8));}
-  @keyframes bahiaPulse{0%{r:1.3;opacity:.9;}100%{r:7;opacity:0;}}
+  .hero-scrim::before{top:0;height:34%;background:linear-gradient(180deg,rgba(5,16,26,.78) 0%,rgba(5,16,26,.4) 62%,transparent 100%);}
+  .hero-scrim::after{bottom:0;height:50%;background:linear-gradient(0deg,rgba(5,16,26,.85) 0%,rgba(5,16,26,.55) 55%,transparent 100%);}
   .hero-inner{
     position:relative;z-index:2;max-width:520px;width:100%;margin:0 auto;flex:1 1 auto;
     text-align:center;display:flex;flex-direction:column;align-items:center;
   }
-  .hero-top{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;text-align:left;margin-bottom:16px;}
-  .hero-bottom-group{width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:auto;padding-top:16px;}
+  .hero-top{width:100%;display:flex;align-items:flex-start;justify-content:flex-start;gap:14px;text-align:left;margin-bottom:16px;}
+  .hero-bottom-group{width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:14px;}
 
   @media (min-width:1240px){
     .hero-inner{
@@ -190,7 +185,7 @@
       column-gap:24px;row-gap:0;align-content:start;align-items:start;
     }
     .hero-top{grid-column:1/-1;grid-row:1;margin-bottom:44px;}
-    .countdown{grid-column:1;grid-row:2;align-items:flex-start;justify-self:start;width:100%;}
+    .countdown{grid-column:1;grid-row:2;align-items:flex-start;justify-self:start;width:100%;margin-top:0;padding-top:0;}
     .countdown-label{text-align:left;}
     .countdown-grid{flex-wrap:wrap;gap:6px;}
     .hero-bottom-group{grid-column:3;grid-row:2;align-items:flex-start;text-align:left;margin-top:0;padding-top:4px;justify-self:end;width:100%;}
@@ -203,16 +198,15 @@
   .hero-kicker{display:flex;flex-direction:column;gap:5px;}
   .hero-kicker .eyebrow{color:var(--sand-300);}
   .hero-kicker-title{font-size:clamp(16px,4.2vw,20px);line-height:1.08;color:var(--cream-fixed);}
-  .hero-logo{width:clamp(50px,13vw,66px);height:auto;flex:none;filter:drop-shadow(0 8px 16px rgba(0,0,0,.35));}
   .hero .sub{font-size:15.5px;color:rgba(251,244,228,.92);max-width:38ch;text-shadow:0 2px 10px rgba(0,0,0,.4);}
-  .globe-caption{
+  .destino-chip{
     font-size:12.5px;font-weight:800;color:var(--cream-fixed);
     background:rgba(11,46,68,.4);border:1px solid rgba(251,244,228,.35);
     padding:6px 14px;border-radius:100px;backdrop-filter:blur(4px);
   }
 
   /* ---------- Countdown ---------- */
-  .countdown{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .countdown{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:auto;padding-top:16px;}
   .countdown-label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,244,228,.88);text-shadow:0 2px 8px rgba(0,0,0,.4);}
   .countdown-grid{display:flex;gap:8px;}
   .countdown-cell{
@@ -223,10 +217,6 @@
   }
   .countdown-cell b{font-family:"Baloo 2";font-size:20px;color:#fff;line-height:1;font-variant-numeric:tabular-nums;}
   .countdown-cell span{font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.78);}
-
-  @media (prefers-reduced-motion:reduce){
-    .bahia-pulse-ring{animation:none;opacity:0;}
-  }
 
   /* ---------- Plane cursor + smoke trail ---------- */
   .smoke-puff{
@@ -525,15 +515,8 @@
 
 <main id="top">
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="earth-poster.jpg">
-      <source src="earth.mp4" type="video/mp4">
-    </video>
+    <img class="hero-kv-img" src="kv-hero.jpg" alt="Emblema Meio Médico UFPR 169 sobre ilustração de praia com prancha, coqueiros e mar" fetchpriority="high">
     <div class="hero-scrim"></div>
-    <svg class="globe-overlay" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <ellipse class="brazil-ring" cx="56" cy="59" rx="14.5" ry="13" transform="rotate(-8 56 59)"/>
-      <circle class="bahia-pulse-ring" cx="61" cy="57.5" r="1.3"/>
-      <circle class="bahia-pulse-dot" cx="61" cy="57.5" r="0.9"/>
-    </svg>
 
     <div class="hero-inner">
       <div class="hero-top">
@@ -541,7 +524,6 @@
           <img class="hero-formo-big" src="formo-logo.png" alt="Formô" width="411" height="372">
           <h1 class="hero-kicker-title">Guia Geral<br>da Viagem</h1>
         </div>
-        <img class="hero-logo" src="badge.png" width="702" height="573" alt="Emblema Meio Médico UFPR 169">
       </div>
 
       <div class="countdown" aria-label="Contagem regressiva para a viagem">
@@ -555,7 +537,7 @@
       </div>
 
       <div class="hero-bottom-group">
-        <span class="globe-caption">📍 Destino: Praia do Forte, Bahia</span>
+        <span class="destino-chip">📍 Destino: Praia do Forte, Bahia</span>
         <p class="sub">“Viajô — o céu já não é mais o limite.” Tudo o que a turma 169 precisa saber antes de cair na areia, num só lugar.</p>
         <a href="#voo" class="hero-cta">
           Clique para começar
@@ -990,30 +972,6 @@
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
-
-    var earthVideo=document.querySelector('.hero-video');
-    if(earthVideo){
-      earthVideo.muted=true;
-      earthVideo.defaultMuted=true;
-      earthVideo.setAttribute('muted','');
-      var tryPlay=function(){
-        if(earthVideo.paused){
-          earthVideo.muted=true;
-          var p=earthVideo.play();
-          if(p&&p.catch)p.catch(function(){});
-        }
-      };
-      tryPlay();
-      earthVideo.addEventListener('loadedmetadata',tryPlay);
-      earthVideo.addEventListener('canplay',tryPlay);
-      document.addEventListener('visibilitychange',function(){if(!document.hidden)tryPlay();});
-      window.addEventListener('pageshow',tryPlay);
-      ['pointerdown','touchstart','scroll','keydown','click'].forEach(function(evt){
-        window.addEventListener(evt, tryPlay, {passive:true});
-      });
-      setTimeout(tryPlay,300);
-      setTimeout(tryPlay,1200);
-    }
 
     var heroEl=document.querySelector('.hero');
     var reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
