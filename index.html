@@ -313,6 +313,40 @@
     display:inline-flex;align-items:center;gap:6px;
   }
 
+  /* ---------- Hotel slider ---------- */
+  .hotel-slider{position:relative;margin-bottom:14px;}
+  .hotel-slides{
+    display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
+    border-radius:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .hotel-slides::-webkit-scrollbar{display:none;}
+  .hotel-slides img{
+    flex:0 0 100%;width:100%;aspect-ratio:4/3;object-fit:cover;
+    scroll-snap-align:center;border-radius:20px;background:var(--bg-alt);display:block;
+  }
+  .hotel-nav{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;
+    background:rgba(255,255,255,.92);color:var(--ocean-900);box-shadow:var(--shadow);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hotel-nav.prev{left:10px;}
+  .hotel-nav.next{right:10px;}
+  .hotel-dots{display:flex;justify-content:center;gap:6px;margin-top:10px;}
+  .hotel-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background .2s,transform .2s;cursor:pointer;padding:0;border:none;}
+  .hotel-dot.active{background:var(--accent-strong);transform:scale(1.4);}
+  .hotel-rating{display:flex;align-items:center;gap:12px;margin-bottom:2px;}
+  .hotel-rating .stars{color:var(--accent-strong);font-size:16px;letter-spacing:1px;line-height:1;}
+  .hotel-rating b{display:block;font-size:15px;}
+  .hotel-rating span{display:block;font-size:12.5px;color:var(--text-muted);margin-top:1px;}
+  .hotel-tags .chip{background:var(--cream-100);color:var(--accent-strong);border-color:var(--border);}
+  .hotel-link{
+    margin-top:2px;display:inline-flex;align-items:center;gap:7px;
+    font-weight:800;font-size:13.5px;color:var(--accent-strong);text-decoration:none;
+  }
+  .hotel-link svg{transition:transform .15s;}
+  .hotel-link:hover svg{transform:translateX(3px);}
+
   /* pack list */
   .pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .pack-item{
@@ -497,6 +531,7 @@
     </button>
   </div>
   <nav id="drawerNav">
+    <a href="#hotel" data-sec="hotel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5"/><path d="M9 8h1M14 8h1M9 12h1M14 12h1"/></svg> O hotel</a>
     <a href="#voo" data-sec="voo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-3 2v1.5l4.5-1 4.5 1V21l-3-2v-5.5z"/></svg> Voo e check-in</a>
     <a href="#bagagem" data-sec="bagagem"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3"/></svg> Bagagem</a>
     <a href="#levar" data-sec="levar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg> O que levar</a>
@@ -548,6 +583,47 @@
     <svg class="hero-wave" viewBox="0 0 400 32" preserveAspectRatio="none">
       <path d="M0 20 C 50 0, 100 32, 150 18 C 200 4, 250 30, 300 16 C 340 6, 380 22, 400 14 V32 H0 Z" fill="var(--bg)"/>
     </svg>
+  </section>
+
+  <!-- HOTEL -->
+  <section id="hotel">
+    <div class="section-head">
+      <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5"/><path d="M9 8h1M14 8h1M9 12h1M14 12h1"/></svg></div>
+      <div><span class="tag">Onde vamos ficar</span><h2>Iberostar Waves Bahia</h2></div>
+    </div>
+    <div class="section-body">
+      <div class="hotel-slider">
+        <div class="hotel-slides" id="hotelSlides">
+          <img src="hotel-1.jpg" alt="Vista aérea das piscinas do Iberostar Waves Bahia, de frente para o mar" loading="lazy">
+          <img src="hotel-2.jpg" alt="Piscina do hotel com vista para a Praia do Forte" loading="lazy">
+          <img src="hotel-3.jpg" alt="Quarto do Iberostar Waves Bahia com cama de casal e varanda" loading="lazy">
+          <img src="hotel-4.jpg" alt="Momento de gastronomia e drinks no hotel" loading="lazy">
+          <img src="hotel-5.jpg" alt="Espreguiçadeiras à beira da piscina, de frente para o mar" loading="lazy">
+          <img src="hotel-6.jpg" alt="Piscina com deck de madeira do hotel" loading="lazy">
+        </div>
+        <button type="button" class="hotel-nav prev" aria-label="Foto anterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" class="hotel-nav next" aria-label="Próxima foto"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        <div class="hotel-dots" id="hotelDots"></div>
+      </div>
+
+      <div class="card">
+        <div class="hotel-rating">
+          <span class="stars">★★★★★</span>
+          <div><b>5 estrelas · All Inclusive</b><span>Praia do Forte, Bahia — nota "excelente" no Tripadvisor, com 12.922 avaliações</span></div>
+        </div>
+        <p>Hotel à beira-mar, direto na areia da Praia do Forte, com piscinas de borda, campo de golfe de 9 buracos, spa completo e 13 propostas gastronômicas de alto nível — tudo pensado pra turma aproveitar sem sair do resort.</p>
+        <div class="chip-row hotel-tags">
+          <span class="chip">🏖️ All Inclusive na praia</span>
+          <span class="chip">🍽️ 13 restaurantes</span>
+          <span class="chip">⛳ Golfe 9 buracos</span>
+          <span class="chip">♻️ Livre de plástico</span>
+        </div>
+        <a href="https://www.iberostar.com/br/hoteis/bahia/iberostar-waves-bahia/" target="_blank" rel="noopener" class="hotel-link">
+          Conhecer o hotel completo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 12h13M13 6l7 6-7 6"/></svg>
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- VOO -->
@@ -664,7 +740,7 @@
     </div>
     <div class="section-body">
       <div class="card">
-        <p>Uma pessoa por quarto fica responsável por levar os documentos até o <strong>quiosque</strong> e assinar o termo de responsabilidade em nome do grupo.</p>
+        <p>Uma pessoa por quarto fica responsável por levar os documentos até a <strong>recepção</strong> e assinar o termo de responsabilidade em nome do grupo.</p>
       </div>
     </div>
   </section>
@@ -1003,6 +1079,39 @@
           setTimeout(function(){if(puff.parentNode)puff.remove();},1400);
         });
       }
+    }
+  }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  try{
+    var track=document.getElementById('hotelSlides');
+    var dotsWrap=document.getElementById('hotelDots');
+    if(track && dotsWrap){
+      var imgs=track.querySelectorAll('img');
+      imgs.forEach(function(_,i){
+        var d=document.createElement('button');
+        d.type='button';
+        d.className='hotel-dot'+(i===0?' active':'');
+        d.setAttribute('aria-label','Ir para foto '+(i+1));
+        d.addEventListener('click',function(){
+          track.scrollTo({left:track.clientWidth*i,behavior:'smooth'});
+        });
+        dotsWrap.appendChild(d);
+      });
+      var dots=dotsWrap.querySelectorAll('.hotel-dot');
+      var updateDots=function(){
+        var idx=Math.round(track.scrollLeft/track.clientWidth);
+        dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+      };
+      track.addEventListener('scroll',function(){window.requestAnimationFrame(updateDots);},{passive:true});
+      document.querySelectorAll('.hotel-nav').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          var dir=btn.classList.contains('next')?1:-1;
+          track.scrollTo({left:track.scrollLeft+track.clientWidth*dir,behavior:'smooth'});
+        });
+      });
     }
   }catch(e){}
 })();
