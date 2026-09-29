@@ -196,11 +196,21 @@
   @keyframes bahiaPulse{0%{r:1.3;opacity:.9;}100%{r:7;opacity:0;}}
   .hero-inner{
     position:relative;z-index:2;max-width:520px;width:100%;margin:0 auto;flex:1 1 auto;
-    text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:18px;
+    text-align:center;display:flex;flex-direction:column;align-items:center;
   }
-  .hero-top-group{width:100%;display:flex;flex-direction:column;align-items:center;gap:16px;}
-  .hero-bottom-group{width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;}
-  .hero-top{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;text-align:left;}
+  .hero-top{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;text-align:left;margin-bottom:16px;}
+  .hero-bottom-group{width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:auto;padding-top:16px;}
+
+  @media (min-width:860px){
+    .hero-inner{
+      max-width:1080px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;
+      column-gap:56px;row-gap:0;align-content:start;align-items:start;
+    }
+    .hero-top{grid-column:1/-1;grid-row:1;margin-bottom:36px;}
+    .countdown{grid-column:1;grid-row:2;align-items:flex-start;}
+    .countdown-label{text-align:left;}
+    .hero-bottom-group{grid-column:2;grid-row:2;align-items:flex-start;text-align:left;margin-top:0;padding-top:4px;}
+  }
   .hero-kicker{display:flex;flex-direction:column;gap:5px;}
   .hero-kicker .eyebrow{color:var(--sand-300);}
   .hero-kicker-title{font-size:clamp(16px,4.2vw,20px);line-height:1.08;color:var(--cream-fixed);}
@@ -245,7 +255,7 @@
     padding:13px 22px;border-radius:100px;text-decoration:none;box-shadow:0 14px 30px -12px rgba(255,200,98,.6);
     border:none;cursor:pointer;
   }
-  .hero-wave{display:block;width:100%;height:auto;position:relative;margin-top:auto;z-index:2;}
+  .hero-wave{display:block;width:100%;height:clamp(20px,3.2vw,42px);position:relative;margin-top:auto;z-index:2;}
 
   /* ---------- Sections ---------- */
   section{padding:52px 20px 8px;scroll-margin-top:76px;}
@@ -504,23 +514,21 @@
     </svg>
 
     <div class="hero-inner">
-      <div class="hero-top-group">
-        <div class="hero-top">
-          <div class="hero-kicker">
-            <span class="eyebrow">Formô apresenta</span>
-            <h1 class="hero-kicker-title">Guia Geral<br>da Viagem</h1>
-          </div>
-          <img class="hero-logo" src="badge.png" width="702" height="573" alt="Emblema Meio Médico UFPR 169">
+      <div class="hero-top">
+        <div class="hero-kicker">
+          <span class="eyebrow">Formô apresenta</span>
+          <h1 class="hero-kicker-title">Guia Geral<br>da Viagem</h1>
         </div>
+        <img class="hero-logo" src="badge.png" width="702" height="573" alt="Emblema Meio Médico UFPR 169">
+      </div>
 
-        <div class="countdown" aria-label="Contagem regressiva para a viagem">
-          <span class="countdown-label">Faltam para a viagem</span>
-          <div class="countdown-grid">
-            <div class="countdown-cell"><b id="cdDays">00</b><span>dias</span></div>
-            <div class="countdown-cell"><b id="cdHours">00</b><span>horas</span></div>
-            <div class="countdown-cell"><b id="cdMinutes">00</b><span>min</span></div>
-            <div class="countdown-cell"><b id="cdSeconds">00</b><span>seg</span></div>
-          </div>
+      <div class="countdown" aria-label="Contagem regressiva para a viagem">
+        <span class="countdown-label">Faltam para a viagem</span>
+        <div class="countdown-grid">
+          <div class="countdown-cell"><b id="cdDays">00</b><span>dias</span></div>
+          <div class="countdown-cell"><b id="cdHours">00</b><span>horas</span></div>
+          <div class="countdown-cell"><b id="cdMinutes">00</b><span>min</span></div>
+          <div class="countdown-cell"><b id="cdSeconds">00</b><span>seg</span></div>
         </div>
       </div>
 
