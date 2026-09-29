@@ -295,13 +295,12 @@
   }
   .kv-deco{position:absolute;pointer-events:none;z-index:1;}
   .kv-palms{width:clamp(110px,30vw,180px);height:auto;bottom:-8px;right:-6px;opacity:.96;filter:drop-shadow(0 10px 16px rgba(0,0,0,.18));}
-  .kv-lifepreserver{width:clamp(60px,15vw,88px);height:auto;top:14px;right:16px;transform:rotate(-10deg);filter:drop-shadow(0 8px 14px rgba(0,0,0,.28));}
-  .kv-starfish{width:52px;height:auto;top:4px;right:20px;transform:rotate(12deg);filter:drop-shadow(0 6px 10px rgba(0,0,0,.2));}
-  .kv-shell{width:38px;height:auto;top:56px;right:92px;transform:rotate(-18deg);filter:drop-shadow(0 6px 10px rgba(0,0,0,.2));}
+  .kv-lifepreserver{width:clamp(60px,15vw,88px);height:auto;top:16px;right:18px;transform:rotate(-10deg);filter:drop-shadow(0 8px 14px rgba(0,0,0,.28));}
+  .kv-starfish{width:54px;height:auto;top:16px;right:20px;transform:rotate(12deg);filter:drop-shadow(0 6px 10px rgba(0,0,0,.2));}
+  #emergencia::before,#checklist::before{display:none;}
   @media (max-width:420px){
-    .kv-lifepreserver{width:60px;top:10px;right:12px;}
-    .kv-starfish{width:42px;right:14px;}
-    .kv-shell{width:32px;right:66px;top:46px;}
+    .kv-lifepreserver{width:58px;top:12px;right:14px;}
+    .kv-starfish{width:44px;top:12px;right:14px;}
   }
 
   section>.section-head,section>.section-body{position:relative;z-index:1;}
@@ -847,7 +846,6 @@
   <!-- CHECKLIST -->
   <section id="checklist">
     <img class="kv-deco kv-starfish" src="starfish.png" alt="" aria-hidden="true">
-    <img class="kv-deco kv-shell" src="shell.png" alt="" aria-hidden="true">
     <div class="section-head">
       <div class="section-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
       <div><span class="tag">Antes de fechar a mala</span><h2>Checklist final</h2></div>
