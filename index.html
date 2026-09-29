@@ -185,19 +185,21 @@
     cursor:inherit;
   }
   .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;display:block;}
-  .hero-scrim{
-    position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(180deg,rgba(5,16,26,.85) 0%,rgba(5,16,26,.6) 34%,rgba(5,16,26,.22) 58%,transparent 76%);
-  }
+  .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;}
+  .hero-scrim::before,.hero-scrim::after{content:"";position:absolute;left:0;right:0;}
+  .hero-scrim::before{top:0;height:40%;background:linear-gradient(180deg,rgba(5,16,26,.82) 0%,rgba(5,16,26,.45) 62%,transparent 100%);}
+  .hero-scrim::after{bottom:0;height:38%;background:linear-gradient(0deg,rgba(5,16,26,.82) 0%,rgba(5,16,26,.45) 62%,transparent 100%);}
   .globe-overlay{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
   .brazil-ring{fill:none;stroke:#FBF4E4;stroke-width:.7;stroke-dasharray:3 2.2;opacity:.8;}
   .bahia-pulse-ring{fill:none;stroke:#F5FF3D;stroke-width:.6;opacity:.85;animation:bahiaPulse 2.6s ease-out infinite;}
   .bahia-pulse-dot{fill:#F5FF3D;filter:drop-shadow(0 0 3px #F5FF3D) drop-shadow(0 0 7px rgba(245,255,61,.8));}
   @keyframes bahiaPulse{0%{r:1.3;opacity:.9;}100%{r:7;opacity:0;}}
   .hero-inner{
-    position:relative;z-index:2;max-width:520px;width:100%;margin:0 auto;
-    text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;
+    position:relative;z-index:2;max-width:520px;width:100%;margin:0 auto;flex:1 1 auto;
+    text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:18px;
   }
+  .hero-top-group{width:100%;display:flex;flex-direction:column;align-items:center;gap:16px;}
+  .hero-bottom-group{width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;}
   .hero-top{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;text-align:left;}
   .hero-kicker{display:flex;flex-direction:column;gap:5px;}
   .hero-kicker .eyebrow{color:var(--sand-300);}
@@ -432,8 +434,11 @@
     background:var(--surface);box-shadow:0 16px 34px -12px rgba(11,46,68,.5);
     display:flex;align-items:center;justify-content:center;
     background-image:conic-gradient(var(--accent) calc(var(--fab-pct,0)*1%),var(--border) 0);
-    transition:transform .2s;
+    transition:transform .2s,opacity .3s ease;
+    opacity:0;pointer-events:none;transform:scale(.8);
   }
+  .fab.show{opacity:1;pointer-events:auto;transform:scale(1);}
+  .fab:active{transform:scale(.94);}
   .fab:active{transform:scale(.94);}
   .fab-inner{
     width:48px;height:48px;border-radius:50%;background:var(--surface);
@@ -499,30 +504,34 @@
     </svg>
 
     <div class="hero-inner">
-      <div class="hero-top">
-        <div class="hero-kicker">
-          <span class="eyebrow">Formô apresenta</span>
-          <h1 class="hero-kicker-title">Guia Geral<br>da Viagem</h1>
+      <div class="hero-top-group">
+        <div class="hero-top">
+          <div class="hero-kicker">
+            <span class="eyebrow">Formô apresenta</span>
+            <h1 class="hero-kicker-title">Guia Geral<br>da Viagem</h1>
+          </div>
+          <img class="hero-logo" src="badge.png" width="702" height="573" alt="Emblema Meio Médico UFPR 169">
         </div>
-        <img class="hero-logo" src="badge.png" width="702" height="573" alt="Emblema Meio Médico UFPR 169">
+
+        <div class="countdown" aria-label="Contagem regressiva para a viagem">
+          <span class="countdown-label">Faltam para a viagem</span>
+          <div class="countdown-grid">
+            <div class="countdown-cell"><b id="cdDays">00</b><span>dias</span></div>
+            <div class="countdown-cell"><b id="cdHours">00</b><span>horas</span></div>
+            <div class="countdown-cell"><b id="cdMinutes">00</b><span>min</span></div>
+            <div class="countdown-cell"><b id="cdSeconds">00</b><span>seg</span></div>
+          </div>
+        </div>
       </div>
 
-      <div class="countdown" aria-label="Contagem regressiva para a viagem">
-        <span class="countdown-label">Faltam para a viagem</span>
-        <div class="countdown-grid">
-          <div class="countdown-cell"><b id="cdDays">00</b><span>dias</span></div>
-          <div class="countdown-cell"><b id="cdHours">00</b><span>horas</span></div>
-          <div class="countdown-cell"><b id="cdMinutes">00</b><span>min</span></div>
-          <div class="countdown-cell"><b id="cdSeconds">00</b><span>seg</span></div>
-        </div>
+      <div class="hero-bottom-group">
+        <span class="globe-caption">📍 Destino: Praia do Forte, Bahia</span>
+        <p class="sub">“Viajô — o céu já não é mais o limite.” Tudo o que a turma 169 precisa saber antes de cair na areia, num só lugar.</p>
+        <a href="#voo" class="hero-cta">
+          Clique para começar
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 12h13M13 6l7 6-7 6"/></svg>
+        </a>
       </div>
-
-      <span class="globe-caption">📍 Destino: Praia do Forte, Bahia</span>
-      <p class="sub">“Viajô — o céu já não é mais o limite.” Tudo o que a turma 169 precisa saber antes de cair na areia, num só lugar.</p>
-      <a href="#voo" class="hero-cta">
-        Clique para começar
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 12h13M13 6l7 6-7 6"/></svg>
-      </a>
     </div>
     <svg class="hero-wave" viewBox="0 0 400 32" preserveAspectRatio="none">
       <path d="M0 20 C 50 0, 100 32, 150 18 C 200 4, 250 30, 300 16 C 340 6, 380 22, 400 14 V32 H0 Z" fill="var(--bg)"/>
@@ -994,5 +1003,22 @@
   }catch(e){}
 })();
 </script>
+<script>
+(function(){
+  try{
+    var fab=document.getElementById('fab');
+    var hero=document.querySelector('.hero');
+    if(fab && hero){
+      var onScroll=function(){
+        var show = window.scrollY > (hero.offsetHeight - 120);
+        fab.classList.toggle('show', show);
+      };
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    }
+  }catch(e){}
+})();
+</script>
+
 </body>
 </html>
