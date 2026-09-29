@@ -281,20 +281,18 @@
   .section-head .tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:2px;}
 
   /* ---------- Formo brand marks ---------- */
-  .hero-formo-big{width:clamp(46px,11vw,64px);height:auto;flex:none;fill:var(--cream-fixed);filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));}
-  .section-formo-mark{position:absolute;top:20px;right:20px;width:34px;height:auto;z-index:1;fill:var(--accent-strong);opacity:.9;pointer-events:none;}
-  section{position:relative;overflow:hidden;}
-  section>.section-head,section>.section-body{position:relative;z-index:1;}
-  .brush-deco{position:absolute;pointer-events:none;z-index:0;opacity:.5;}
-  .bd-ocean{color:var(--ocean-500);}
-  .bd-coral{color:var(--sand-500);}
-  .bd-forest{color:var(--forest-500);}
-  .brush-tr{top:-26px;right:-36px;transform:rotate(-8deg);}
-  .brush-tl{top:-26px;left:-36px;transform:rotate(8deg) scaleX(-1);}
-  .footer-logo{width:64px;height:auto;fill:var(--cream-fixed);margin:0 auto 12px;display:block;position:relative;z-index:1;}
+  .hero-formo-big{width:clamp(46px,11vw,64px);height:auto;flex:none;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));}
+  .footer-logo{width:64px;height:auto;margin:0 auto 12px;display:block;position:relative;z-index:1;}
   footer p{position:relative;z-index:1;}
   footer{position:relative;overflow:hidden;}
-  .brush-footer{width:min(420px,82vw);height:auto;bottom:-46px;left:50%;color:var(--cream-fixed);opacity:.16;transform:translateX(-50%) scaleX(-1);}
+  section{position:relative;}
+  section>.section-head,section>.section-body{position:relative;z-index:1;}
+  main>section:not(.hero)::before{
+    content:"";position:absolute;top:20px;right:20px;width:32px;height:32px;z-index:1;
+    background-color:var(--accent-strong);opacity:.8;pointer-events:none;
+    -webkit-mask:url("formo-logo.png") no-repeat center/contain;
+    mask:url("formo-logo.png") no-repeat center/contain;
+  }
 
   .section-body{max-width:720px;margin:0 auto;padding-bottom:44px;display:flex;flex-direction:column;gap:14px;}
 
@@ -529,13 +527,6 @@
   </div>
 </aside>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="formoMark" viewBox="52.0 171.7 800.1 737.0">
-      <path d="M 255.21,595.76 L 309.77,595.76 L 309.77,611.48 C 354.46,595.35 395.16,599.03 431.54,631.25 C 442.35,620.71 454.88,612.82 469.25,607.93 C 516.83,591.75 568.96,608.83 593.39,648.70 C 605.41,668.31 608.57,689.83 608.26,712.48 C 607.85,743.05 607.60,773.67 609.01,804.19 C 610.15,828.73 630.60,845.94 655.19,845.74 C 679.16,845.55 698.47,827.79 700.76,803.86 C 700.96,801.76 701.23,799.66 701.50,797.20 L 756.51,797.20 C 757.55,809.35 755.39,820.96 751.27,832.10 C 736.85,871.08 708.28,892.21 667.42,897.03 C 636.29,900.69 608.14,893.28 584.42,872.23 C 565.35,855.31 554.27,833.66 553.22,808.34 C 551.79,773.51 551.83,738.60 552.01,703.73 C 552.17,675.36 533.97,654.91 506.79,654.40 C 479.42,653.90 459.73,673.28 459.45,701.62 C 459.16,730.78 459.38,759.94 459.38,789.10 C 459.38,791.69 459.38,794.28 459.38,797.44 L 403.79,797.44 C 403.79,795.01 403.80,792.48 403.79,789.96 C 403.64,761.04 403.75,732.12 403.28,703.22 C 402.56,658.93 362.93,646.05 335.85,658.99 C 319.47,666.81 311.10,680.84 310.64,698.51 C 309.86,728.61 310.29,758.73 310.21,788.85 C 310.20,791.64 310.21,794.44 310.21,797.62 L 255.21,797.62 L 255.21,595.76 Z M 303.96,228.17 C 288.76,239.22 274.14,249.85 258.96,260.89 C 252.06,248.16 242.18,239.65 228.62,236.02 C 198.57,227.98 171.41,247.40 170.14,278.59 C 169.30,299.33 169.98,320.14 169.98,341.92 L 228.03,341.92 L 228.03,393.69 L 169.89,393.69 L 169.89,402.78 C 169.89,490.00 169.91,577.23 169.88,664.45 C 169.87,715.76 133.04,756.68 81.84,762.26 C 74.78,763.03 67.67,763.40 60.04,764.00 L 60.04,711.42 C 65.93,711.04 71.95,711.34 77.67,710.16 C 98.80,705.81 113.48,687.29 114.06,664.66 C 114.30,655.11 114.14,645.54 114.14,635.98 C 114.15,519.13 114.51,402.27 113.99,285.42 C 113.73,229.21 151.79,186.29 206.89,182.44 C 245.48,179.74 277.74,191.85 301.17,223.84 C 302.01,224.98 302.71,226.22 303.96,228.17 Z M 356.83,492.69 C 383.69,492.68 403.25,471.98 403.34,443.50 C 403.42,414.98 384.14,394.45 356.98,394.16 C 329.78,393.87 310.17,414.65 310.23,443.68 C 310.29,472.18 329.80,492.70 356.83,492.69 C 296.41,545.25 252.85,499.54 254.33,440.44 C 255.73,384.48 298.55,342.10 356.57,342.08 C 415.91,342.06 459.42,385.07 459.38,443.71 C 459.35,502.36 416.07,544.71 356.22,544.67 Z M 787.01,676.64 C 787.50,642.14 767.71,620.41 737.68,621.87 C 717.42,622.85 701.98,635.65 696.47,654.00 C 690.02,675.46 696.05,698.41 711.87,710.48 C 727.06,722.07 743.85,723.75 760.98,715.64 C 779.36,706.95 786.46,690.97 787.01,676.64 C 842.69,730.71 800.28,772.35 739.98,772.28 C 680.96,772.21 637.34,729.14 638.00,670.86 C 638.73,607.06 687.02,568.58 743.38,569.82 C 799.38,571.04 844.11,613.07 842.73,671.38 Z M 489.25,342.50 L 544.07,342.50 L 544.07,355.83 C 561.79,343.19 580.69,340.35 601.17,342.58 L 601.17,393.61 C 594.52,393.95 587.69,393.98 580.94,394.70 C 560.06,396.93 544.37,414.29 544.29,435.34 C 544.16,469.28 544.25,503.21 544.25,537.15 C 544.25,539.26 544.25,541.38 544.25,544.08 L 489.25,544.08 L 489.25,342.50 Z Z"/>
-    </symbol>
-  </defs>
-</svg>
 <main id="top">
   <section class="hero">
     <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="earth-poster.jpg">
@@ -551,7 +542,7 @@
     <div class="hero-inner">
       <div class="hero-top">
         <div class="hero-kicker">
-          <svg class="hero-formo-big" viewBox="52.0 171.7 800.1 737.0" role="img" aria-label="Formô"><use href="#formoMark"></use></svg>
+          <img class="hero-formo-big" src="formo-logo.png" alt="Formô" width="411" height="372">
           <h1 class="hero-kicker-title">Guia Geral<br>da Viagem</h1>
         </div>
         <img class="hero-logo" src="badge.png" width="702" height="573" alt="Emblema Meio Médico UFPR 169">
@@ -884,8 +875,7 @@
 </main>
 
 <footer>
-  <svg class="brush-deco brush-footer" viewBox="35 216 2317 1356" aria-hidden="true"><path d="M 1796.19,245.72 C 1796.19,245.72 911.41,942.86 1483.86,1281.59 C 1922.89,1541.34 2321.55,688.01 1707.96,684.98 C 1135.79,682.12 476.07,787.93 736.64,953.51 C 979.22,1107.64 1317.24,1335.60 882.78,1325.23 C 448.29,1314.80 362.48,1242.24 237.58,1217.05 C 112.66,1191.81 64.54,1177.05 64.54,1177.05" fill="none" stroke="currentColor" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <svg class="footer-logo" viewBox="52.0 171.7 800.1 737.0" role="img" aria-label="Formô"><use href="#formoMark"></use></svg>
+  <img class="footer-logo" src="formo-logo.png" alt="Formô">
   <p>Guia produzido pela equipe Formô para a turma Meio Médico UFPR 169. Em caso de dúvida, fale com a equipe pelo WhatsApp na seção de Emergências.</p>
 </footer>
 
@@ -895,64 +885,6 @@
 
 <div class="toast" id="toast">Copiado!</div>
 
-<script>
-(function(){
-try{
-  var LOGO_VB = "52.0 171.7 800.1 737.0";
-  var SVGNS = 'http://www.w3.org/2000/svg';
-  var XLINKNS = 'http://www.w3.org/1999/xlink';
-
-  var brushDefs = {
-    ocean: {vb:"359 137 1688 1923", d:"M 388.67,1423.64 C 388.67,1423.64 1431.38,166.89 1180.90,1098.28 C 930.43,2029.67 595.57,1577.86 794.39,1299.84 C 979.94,1040.31 1502.08,834.79 1703.37,1279.71 C 1904.66,1724.64 1484.59,1876.67 1370.12,1767.77 C 1243.52,1647.32 1224.26,992.48 2016.86,997.77"},
-    coral: {vb:"35 216 2317 1356", d:"M 1796.19,245.72 C 1796.19,245.72 911.41,942.86 1483.86,1281.59 C 1922.89,1541.34 2321.55,688.01 1707.96,684.98 C 1135.79,682.12 476.07,787.93 736.64,953.51 C 979.22,1107.64 1317.24,1335.60 882.78,1325.23 C 448.29,1314.80 362.48,1242.24 237.58,1217.05 C 112.66,1191.81 64.54,1177.05 64.54,1177.05"},
-    forest: {vb:"729 461 1442 1406", d:"M 759.38,1189.99 C 759.38,1189.99 1908.26,490.98 1463.50,1149.06 C 1018.74,1807.14 879.14,1365.55 1108.49,1202.37 C 1322.56,1050.03 1784.23,1030.00 1821.68,1430.41 C 1859.12,1830.83 1491.27,1836.58 1431.34,1721.10 C 1365.05,1593.37 1525.62,1078.30 2141.37,1294.92"}
-  };
-
-  var plan = {
-    voo: {color:'ocean', pos:'brush-tr'},
-    bagagem: {color:'coral', pos:'brush-tl'},
-    levar: {color:'forest', pos:'brush-tr'},
-    transfer: {color:'ocean', pos:'brush-tl'},
-    'checkin-hotel': {color:'coral', pos:'brush-tr'},
-    alimentacao: {color:'forest', pos:'brush-tl'},
-    pagamentos: {color:'ocean', pos:'brush-tr'},
-    checkout: {color:'coral', pos:'brush-tl'},
-    checklist: {color:'forest', pos:'brush-tr'}
-  };
-
-  document.querySelectorAll('main > section').forEach(function(sec){
-    if(sec.classList.contains('hero')) return;
-
-    var mark = document.createElementNS(SVGNS,'svg');
-    mark.setAttribute('class','section-formo-mark');
-    mark.setAttribute('viewBox', LOGO_VB);
-    mark.setAttribute('aria-hidden','true');
-    var use = document.createElementNS(SVGNS,'use');
-    use.setAttributeNS(XLINKNS,'xlink:href','#formoMark');
-    mark.appendChild(use);
-    sec.insertBefore(mark, sec.firstChild);
-
-    var cfg = plan[sec.id];
-    if(!cfg) return;
-    var b = brushDefs[cfg.color];
-    var brush = document.createElementNS(SVGNS,'svg');
-    brush.setAttribute('class','brush-deco bd-'+cfg.color+' '+cfg.pos);
-    brush.setAttribute('viewBox', b.vb);
-    brush.setAttribute('aria-hidden','true');
-    brush.style.width = '190px';
-    var path = document.createElementNS(SVGNS,'path');
-    path.setAttribute('d', b.d);
-    path.setAttribute('fill','none');
-    path.setAttribute('stroke','currentColor');
-    path.setAttribute('stroke-width','95');
-    path.setAttribute('stroke-linecap','round');
-    path.setAttribute('stroke-linejoin','round');
-    brush.appendChild(path);
-    sec.insertBefore(brush, sec.firstChild);
-  });
-}catch(e){}
-})();
-</script>
 <script>
 (function(){
   try{
