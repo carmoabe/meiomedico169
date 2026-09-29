@@ -529,7 +529,7 @@
 
 <main id="top">
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="earth-poster.jpg">
+    <video class="hero-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="earth-poster.jpg">
       <source src="earth.mp4" type="video/mp4">
     </video>
     <div class="hero-scrim"></div>
@@ -994,13 +994,26 @@
 
     var earthVideo=document.querySelector('.hero-video');
     if(earthVideo){
+      earthVideo.muted=true;
+      earthVideo.defaultMuted=true;
+      earthVideo.setAttribute('muted','');
       var tryPlay=function(){
-        if(earthVideo.paused){earthVideo.play().catch(function(){});}
+        if(earthVideo.paused){
+          earthVideo.muted=true;
+          var p=earthVideo.play();
+          if(p&&p.catch)p.catch(function(){});
+        }
       };
       tryPlay();
-      ['pointerdown','touchstart','scroll','keydown'].forEach(function(evt){
-        window.addEventListener(evt, tryPlay, {once:true, passive:true});
+      earthVideo.addEventListener('loadedmetadata',tryPlay);
+      earthVideo.addEventListener('canplay',tryPlay);
+      document.addEventListener('visibilitychange',function(){if(!document.hidden)tryPlay();});
+      window.addEventListener('pageshow',tryPlay);
+      ['pointerdown','touchstart','scroll','keydown','click'].forEach(function(evt){
+        window.addEventListener(evt, tryPlay, {passive:true});
       });
+      setTimeout(tryPlay,300);
+      setTimeout(tryPlay,1200);
     }
 
     var heroEl=document.querySelector('.hero');
