@@ -389,6 +389,12 @@
   .col-card li svg{flex:none;margin-top:2px;}
   .col-card.yes li svg{color:var(--forest-500);}
   .col-card.no li svg{color:var(--text-muted);}
+  .group-card h3{font-size:14.5px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;color:var(--accent-strong);}
+  .group-row{display:flex;flex-direction:column;gap:3px;}
+  .group-row + .group-row{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);}
+  .group-tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}
+  .group-row b{font-size:16px;color:var(--text);}
+  .group-row small{font-size:12px;color:var(--text-muted);line-height:1.45;}
 
   .note{
     font-size:13px;background:var(--cream-100);border:1px dashed var(--border);
@@ -406,7 +412,9 @@
     background:var(--surface);border:1px solid var(--em-border);border-radius:16px;
     padding:14px 16px;box-shadow:var(--shadow);
   }
-  .contact-info{display:flex;flex-direction:column;gap:2px;}
+  .contact-person{display:flex;align-items:center;gap:12px;min-width:0;}
+  .contact-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 1px var(--em-border);}
+  .contact-info{display:flex;flex-direction:column;gap:2px;min-width:0;}
   .contact-info b{font-size:15px;}
   .contact-info span{font-size:13px;color:var(--text-muted);font-variant-numeric:tabular-nums;}
   .contact-actions{display:flex;gap:8px;}
@@ -814,26 +822,32 @@
       <div><span class="tag">Volta pra casa</span><h2>Check-out</h2></div>
     </div>
     <div class="section-body">
-      <div class="card timeline">
-        <div class="tl-item">
-          <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
-          <div class="tl-content">
-            <h3>Até 07h30</h3>
-            <p>Horário limite para o check-out no hotel.</p>
+      <p class="note">A saída é dividida em 2 grupos, conforme o horário do voo de cada um.</p>
+      <div class="cols">
+        <div class="col-card group-card">
+          <h3>Grupo 1</h3>
+          <div class="group-row">
+            <span class="group-tag">Check-out</span>
+            <b>Até 09h30 no máximo</b>
+            <small>Recomendação Formô: faça o check-out mais cedo.</small>
+          </div>
+          <div class="group-row">
+            <span class="group-tag">Transfer</span>
+            <b>Saída do hotel às 10h30</b>
+            <small>Em caso de atraso, o deslocamento até o aeroporto será de responsabilidade do formando.</small>
           </div>
         </div>
-        <div class="tl-item">
-          <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
-          <div class="tl-content">
-            <h3>Dica da Formô</h3>
-            <p>Faça o check-out antes e só depois vá tomar o café da manhã — evita fila de última hora.</p>
+        <div class="col-card group-card">
+          <h3>Grupo 2</h3>
+          <div class="group-row">
+            <span class="group-tag">Check-out</span>
+            <b>Até 12h00 no máximo</b>
+            <small>Recomendação Formô: faça o check-out mais cedo.</small>
           </div>
-        </div>
-        <div class="tl-item warn">
-          <div class="tl-rail"><div class="tl-dot"></div></div>
-          <div class="tl-content">
-            <h3>Transfer de volta — 08h</h3>
-            <p>Saída do hotel às 08h. Se perder o transfer, a responsabilidade de chegar a tempo no aeroporto para o check-in é do formando.</p>
+          <div class="group-row">
+            <span class="group-tag">Transfer</span>
+            <b>Saída do hotel às 13h00</b>
+            <small>Em caso de atraso, o deslocamento até o aeroporto será de responsabilidade do formando.</small>
           </div>
         </div>
       </div>
@@ -854,14 +868,20 @@
       </div>
 
       <div class="contact-card">
-        <div class="contact-info"><b>Gabriela</b><span>(41) 99673-4200</span></div>
+        <div class="contact-person">
+          <img class="contact-avatar" src="avatar-gabriela.jpg" alt="Foto de Gabriela">
+          <div class="contact-info"><b>Gabriela</b><span>(41) 99673-4200</span></div>
+        </div>
         <div class="contact-actions">
           <a class="icon-btn call" href="tel:+5541996734200" aria-label="Ligar para Gabriela"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1.1.4 2.2.7 3.2a2 2 0 0 1-.5 2.1L8 10.3a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .4 2.1.6 3.2.7a2 2 0 0 1 1.7 2z"/></svg></a>
           <a class="icon-btn wa" href="https://wa.me/5541996734200" target="_blank" rel="noopener" aria-label="WhatsApp da Gabriela"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.8 1.9.8 2s.1.3 0 .5c-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2s1.9.9 2.3 1c.3.2.5.3.6.4.1.2.1.9-.1 1.6z"/></svg></a>
         </div>
       </div>
       <div class="contact-card">
-        <div class="contact-info"><b>Alan</b><span>(41) 99797-0308</span></div>
+        <div class="contact-person">
+          <img class="contact-avatar" src="avatar-alan.jpg" alt="Foto de Alan">
+          <div class="contact-info"><b>Alan</b><span>(41) 99797-0308</span></div>
+        </div>
         <div class="contact-actions">
           <a class="icon-btn call" href="tel:+5541997970308" aria-label="Ligar para Alan"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1.1.4 2.2.7 3.2a2 2 0 0 1-.5 2.1L8 10.3a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .4 2.1.6 3.2.7a2 2 0 0 1 1.7 2z"/></svg></a>
           <a class="icon-btn wa" href="https://wa.me/5541997970308" target="_blank" rel="noopener" aria-label="WhatsApp do Alan"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.8 1.9.8 2s.1.3 0 .5c-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2s1.9.9 2.3 1c.3.2.5.3.6.4.1.2.1.9-.1 1.6z"/></svg></a>
